@@ -1,5 +1,9 @@
-offsetx = 10
-offsety = -10
+offsetx = 0
+offsety = 0
 
 scalex = 1
 scaley = 1
+
+dataset := "Stadsdelar Eslöv"
+
+MinecraftChatKey := "y"

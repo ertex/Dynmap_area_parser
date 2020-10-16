@@ -5,8 +5,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #include %A_ScriptDir%\config.txt
 
-sleep 5000
-Loop, read, %A_ScriptDir%\data.txt
+FileSelectFile, File
+
+Loop, read, %File%
 {
 	if RegExMatch(A_LoopReadLine, "d=""[^""]+,[^""]+""",Matched)   ;REGEX => d=""[^""]+,[^""]+""    Detects the polygon 
 	{
@@ -23,9 +24,10 @@ Loop, read, %A_ScriptDir%\data.txt
 			y := floor((coords[2] + offsety)*scaley)
 			;MsgBox, %x%
 			;MsgBox, %y%
-			FileAppend, \foobar hej %x% 64 %y%.`n, %A_ScriptDir%\output.txt
+			FileAppend, /dmarker addcorner %x% 64 %y% world `n, %A_ScriptDir%\output.txt
 			
 		}
-		FileAppend, `n, %A_ScriptDir%\output.txt
+		
+		FileAppend, /dmarker addarea Area%A_Index% set:"%dataset%" `n`n, %A_ScriptDir%\output.txt
 	}
 }    
