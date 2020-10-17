@@ -20,4 +20,21 @@ So I just could not be bothered
 
 **Usage**
 
-==TBA==
+	1. create a snippet or download a image of your dynmap
+
+	2. import the image into a svg editor (like inkscape) and then draw straight lines on it. Make sure they are straight and not bezier curves or arc etc as they will not work.
+
+	3. take notes on the origin of your SVG file and minecraft world and also scale. Input the offset of the origins into config.txt. If done wrong your areas will be missplaced.
+
+	4. Run the script "Dynmap Code generator.ahk" and select your .SVG file. a Output.txt file will be created
+
+	5. (optional) rename your areas in output.txt to match what they should be called
+
+	6. Set your chat key in the config file to the one you have in Minecraft.
+
+	7. Start minecraft and join the server you want to add areas to.
+
+	8. Start the script "Minecraft_chat_paster.ahk" and focus on minecraft, 5 seconds after start of the script it will type things in your client.
+
+	
+  
