@@ -13,21 +13,30 @@ Loop, read, %File%
 	{
         ;msgbox, % Matched  ;%A_LoopReadLine%
 		
-		p := 1, m := ""
-		while p := RegExMatch(Matched, "[-\d\.]+,[-\d\.]+", m, p + StrLen(m)) ; Extracts the point formated as x.dy,y.dy
+		if (SubStr(m,4,1) = "M")
 		{
-			;MsgBox , %m%
 
-			coords := StrSplit(m, ",")
+			p := 1, m := ""
+			while p := RegExMatch(Matched, "[-\d\.]+,[-\d\.]+", m, p + StrLen(m)) ; Extracts the point formated as x.dy,y.dy
+			{
+				;MsgBox , %m%
+
+				coords := StrSplit(m, ",")
 			
-			x := floor((coords[1] + offsetx)*scalex)
-			y := floor((coords[2] + offsety)*scaley)
-			;MsgBox, %x%
-			;MsgBox, %y%
-			FileAppend, /dmarker addcorner %x% 64 %y% world `n, %A_ScriptDir%\output.txt
+				x := floor((coords[1] + offsetx)*scalex)
+				y := floor((coords[2] + offsety)*scaley)
+				;MsgBox, %x%
+				;MsgBox, %y%
+				FileAppend, /dmarker addcorner %x% 64 %y% world `n, %A_ScriptDir%\output.txt
 			
-		}
+			}
 		
-		FileAppend, /dmarker addarea Area%A_Index% set:"%dataset%" `n`n, %A_ScriptDir%\output.txt
+			FileAppend, /dmarker addarea Area%A_Index% set:"%dataset%" `n`n, %A_ScriptDir%\output.txt
+		}else{
+
+		MsgBox %substr(m,4,1)%
+		;Add alternative case if the char is "m", hence local coordinates should be used
+		}
+	
 	}
 }    
