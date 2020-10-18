@@ -35,7 +35,30 @@ Loop, read, %File%
 		}else{
 
 		MsgBox %substr(m,4,1)%
-		;Add alternative case if the char is "m", hence local coordinates should be used
+		;alternative case if the char is "m", hence local coordinates should be used
+
+        		p := 1, m := "", x_orig = 0, y_orig = 0
+			while p := RegExMatch(Matched, "[-\d\.]+,[-\d\.]+", m, p + StrLen(m)) ; Extracts the point formated as x.dy,y.dy
+			{
+				;MsgBox , %m%
+
+				coords := StrSplit(m, ",")
+			
+				x := floor((coords[1] + offsetx)*scalex + x_orig)
+				y := floor((coords[2] + offsety)*scaley + y_orig)
+				;MsgBox, %x%
+				;MsgBox, %y%
+				FileAppend, /dmarker addcorner %x% 64 %y% world `n, %A_ScriptDir%\output.txt
+				
+				if(x = 0)
+				{
+					x_orig := x
+					y_orig := y
+				}
+			}
+		
+			FileAppend, /dmarker addarea Area%A_Index% set:"%dataset%" `n`n, %A_ScriptDir%\output.txt
+
 		}
 	
 	}
