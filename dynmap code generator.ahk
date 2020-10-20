@@ -17,19 +17,34 @@ Loop, read, %File%
 		{
 			
 
-			p := 1, m := ""
+			p := 1, m := "", last_x := 0, last_y := 0
 			while p := RegExMatch(Matched, "[-\d\.vhVH]+[,\s][-\d\.]+", m, p + StrLen(m)) ; Extracts the point formated as x.dy,y.dy
 			{
 			
 				RegExMatch(m,  "([-\d\.vhVH]+)[\s,]([-\d\.vhVH]+)",coords)
 					
+				if			(RegExMatch(coords1,"V") = 1){ ; vertical	
 					
+					x := last_x
+					y := floor((coords2 + offsety)*scaley)
+					
+				} else if 	(RegExMatch(coords1,"H") = 1){ ; absolute horizontal
+
+					
+					y := last_y
+					x := floor((coords2 + offsetx)*scalex)
+					
+				} else {
 				
 				x := floor((coords1 + offsetx)*scalex)
 				y := floor((coords2 + offsety)*scaley)
-
+				
+				}
 				
 				FileAppend, /dmarker addcorner %x% 64 %y% world `n, %A_ScriptDir%\output.txt
+			
+				last_x := x
+				last_y := y
 			
 			}
 		

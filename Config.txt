@@ -1,8 +1,8 @@
 offsetx = 0
 offsety = 0
 
-scalex = 1
-scaley = 1
+scalex = 1.88
+scaley = 1.88
 
 dataset := "Stadsdelar Eslöv"
 
