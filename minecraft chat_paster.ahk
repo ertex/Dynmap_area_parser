@@ -11,11 +11,11 @@ Loop, read, %A_ScriptDir%\output.txt
 	if %A_ScriptDir%
 	{
 		send %MinecraftChatKey%
-		sleep 400
-		send %A_LoopReadLine%
-		sleep 400
-		send {Enter}
 		sleep 100
+		send %A_LoopReadLine%
+		sleep 100
+		send {Enter}
+		sleep 50
 	}
 
 }
