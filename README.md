@@ -22,7 +22,7 @@ So I just could not be bothered
 
 	1. create a snippet or download a image of your dynmap
 
-	2. import the image into a svg editor (like inkscape) and then draw straight lines on it. Make sure they are straight and not bezier curves or arc etc as they will not work.
+	2. import the image into a svg editor (like inkscape) and then draw straight lines on it (do not hold shift while drawing them). Make sure they are straight and not bezier curves or arc etc as they will not work.
 
 	3. take notes on the origin of your SVG file and minecraft world and also scale. Input the offset of the origins into config.txt. If done wrong your areas will be missplaced.
 

@@ -1,0 +1,67 @@
+/dmarker addcorner 40 64 42 world 
+/dmarker addcorner 42 64 110 world 
+/dmarker addcorner 74 64 107 world 
+/dmarker addcorner 74 64 91 world 
+/dmarker addcorner 53 64 82 world 
+/dmarker addcorner 73 64 68 world 
+/dmarker addcorner 75 64 52 world 
+/dmarker addcorner 64 64 44 world 
+/dmarker addarea Area57 set:"Stadsdelar Eslöv" 
+
+/dmarker addcorner 49 64 51 world 
+/dmarker addcorner 49 64 65 world 
+/dmarker addcorner 63 64 61 world 
+/dmarker addarea Area61 set:"Stadsdelar Eslöv" 
+
+/dmarker addcorner 49 64 0 world 
+Setting the origin/dmarker addcorner 0 64 0 world 
+Setting the origin/dmarker addcorner 1 64 8 world 
+Setting the origin/dmarker addcorner 11 64 3 world 
+/dmarker addarea Area65 set:"Stadsdelar Eslöv" 
+
+/dmarker addcorner 84 64 0 world 
+Setting the origin/dmarker addcorner 106 64 -68 world 
+Setting the origin/dmarker addcorner 126 64 -68 world 
+/dmarker addcorner 129 64 -9 world 
+/dmarker addcorner 88 64 -69 world 
+/dmarker addcorner 95 64 -93 world 
+/dmarker addcorner 90 64 -66 world 
+/dmarker addcorner 91 64 -37 world 
+/dmarker addarea Area69 set:"Stadsdelar Eslöv" 
+
+/dmarker addcorner 112 64 0 world 
+Setting the origin/dmarker addcorner 111 64 6 world 
+Setting the origin/dmarker addcorner 107 64 15 world 
+/dmarker addcorner 126 64 3 world 
+/dmarker addarea Area73 set:"Stadsdelar Eslöv" 
+
+/dmarker addcorner 172 64 0 world 
+Setting the origin/dmarker addcorner 172 64 39 world 
+Setting the origin/dmarker addcorner 162 64 41 world 
+/dmarker addcorner 166 64 27 world 
+/dmarker addcorner 166 64 45 world 
+/dmarker addcorner 180 64 56 world 
+/dmarker addcorner 189 64 40 world 
+/dmarker addcorner 181 64 25 world 
+/dmarker addcorner 169 64 -10 world 
+/dmarker addarea Area77 set:"Stadsdelar Eslöv" 
+
+/dmarker addcorner 248 64 0 world 
+Setting the origin/dmarker addcorner 0 64 0 world 
+Setting the origin/dmarker addcorner 0 64 0 world 
+Setting the origin/dmarker addcorner -11 64 11 world 
+Setting the origin/dmarker addcorner -2 64 22 world 
+/dmarker addcorner 4 64 22 world 
+/dmarker addcorner -3 64 16 world 
+/dmarker addcorner -9 64 22 world 
+/dmarker addcorner -24 64 21 world 
+/dmarker addcorner -28 64 12 world 
+/dmarker addcorner -18 64 5 world 
+/dmarker addcorner -10 64 1 world 
+/dmarker addcorner 1 64 16 world 
+/dmarker addcorner -1 64 6 world 
+/dmarker addcorner -35 64 -12 world 
+/dmarker addcorner -20 64 -8 world 
+/dmarker addcorner 0 64 -2 world 
+/dmarker addarea Area81 set:"Stadsdelar Eslöv" 
+
