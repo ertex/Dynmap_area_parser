@@ -18,37 +18,59 @@ Loop, read, %File%
 			
 
 			p := 1, m := ""
-			while p := RegExMatch(Matched, "[-\d\.vhVH]+[,\s][-\d\.vhVH]+", m, p + StrLen(m)) ; Extracts the point formated as x.dy,y.dy
+			while p := RegExMatch(Matched, "[-\d\.vhVH]+[,\s][-\d\.]+", m, p + StrLen(m)) ; Extracts the point formated as x.dy,y.dy
 			{
+			
+				RegExMatch(m,  "([-\d\.vhVH]+)[\s,]([-\d\.vhVH]+)",coords)
+					
+					
 				
-				coords := StrSplit(m, ",")
-				
-					x := floor((coords[1] + offsetx)*scalex)
-					y := floor((coords[2] + offsety)*scaley)
+				x := floor((coords1 + offsetx)*scalex)
+				y := floor((coords2 + offsety)*scaley)
 
-				;MsgBox, %x%
-				;MsgBox, %y%
+				
 				FileAppend, /dmarker addcorner %x% 64 %y% world `n, %A_ScriptDir%\output.txt
 			
 			}
 		
 			FileAppend, /dmarker addarea Area%A_Index% set:"%dataset%" `n`n, %A_ScriptDir%\output.txt
+			
 		}else{
 
 		
 		;alternative case if the char is "m", hence local coordinates should be used
 
         	p := 1, m := "", x_orig = 0, y_orig = ""
-			while p := RegExMatch(Matched, "[-\d\.vhVH]+[,\s][-\d\.vhVH]+", m, p + StrLen(m)) ; Extracts the point formated as x.dy,y.dy
+			while p := RegExMatch(Matched, "[-\d\.vhVH]+[,\s][-\d\.]+", m, p + StrLen(m)) ; Extracts the point formated as x.dy,y.dy
 			{
-				coords := StrSplit(m, ",")
+				RegExMatch(m,  "([-\d\.vhVH]+)[\s,]([-\d\.vhVH]+)",coords)
 				
-				x := floor((coords[1] + offsetx)*scalex + x_orig)
-				y := floor((coords[2] + offsety)*scaley + y_orig)
-				;MsgBox, % coords[2]
-				;MsgBox, % coords[1]
+				if			(RegExMatch(coords1,"v" = 1)){ ; relative vertical
 				
-				;MsgBox, % x
+					x := last_x
+					y := floor((coords2 + offsety)*scaley + last_y)
+				
+				} else if 	(RegExMatch(coords1,"V" = 1)){ ; absolute vertical
+					
+					x := last_x
+					y := floor((coords2 + offsety)*scaley)
+				
+				} else if 	(RegExMatch(coords1,"h" = 1)){ ; relative horizontal
+					
+					y := last_y
+					x := floor((coords2 + offsetx)*scalex + last_x)
+				
+				} else if 	(RegExMatch(coords1,"H" = 1)){ ; absolute horizontal
+				
+					y := last_y
+					x := floor((coords2 + offsetx)*scalex)
+				
+				} else{
+				
+					x := floor((coords1 + offsetx)*scalex + x_orig)
+					y := floor((coords2 + offsety)*scaley + y_orig)
+				
+				}
 				
 				FileAppend, /dmarker addcorner %x% 64 %y% world `n, %A_ScriptDir%\output.txt
 				
@@ -56,9 +78,10 @@ Loop, read, %File%
 				{
 					x_orig := x
 					y_orig := y
-					FileAppend, Setting the origin , %A_ScriptDir%\output.txt
-					MsgBox, setting the y_orig
 				}
+				
+				last_x := x
+				last_y := y
 			}
 		
 			FileAppend, /dmarker addarea Area%A_Index% set:"%dataset%" `n`n, %A_ScriptDir%\output.txt
